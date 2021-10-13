@@ -98,6 +98,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "NuclearHistory:build:production",
+            "firebaseProject": "nthistory-2a391",
+            "firebaseHostingSite": "nthistory-2a391"
+          }
         }
       }
     }

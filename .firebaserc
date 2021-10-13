@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "nthistory-2a391"
+  },
+  "targets": {
+    "nthistory-2a391": {
+      "hosting": {
+        "NuclearHistory": [
+          "nthistory-2a391"
+        ]
+      }
+    }
+  }
+}

@@ -1,40 +1,39 @@
 <form #userId="ngForm" (ngSubmit)="getUserRunsHistory(userId.value)">
-    <div class="form-row">
-      <div class="col-md-2">
-        <input
-          type="text"
-          name="SteamId"
-          placeholder="Enter Steam ID"
-          class="form-control"
-          ngModel
-        />
-        <small class="form-text text-muted">Example: 76561198087280179</small>
-      </div>
-      <div class="col-md-6">
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
+  <div class="form-row">
+    <div class="col-md-3 form-group">
+      <input
+        type="text"
+        name="SteamId"
+        placeholder="Enter Steam ID"
+        class="form-control"
+        ngModel
+      />
+      <small class="form-text text-muted">Example: 76561198087280179</small>
     </div>
-  </form>
-  <form #userStreamKey="ngForm" (ngSubmit)="updateStreamKey(userStreamKey.value)">
-    <div class="form-row">
-      <div class="col-md-2 form-group">
-        <input
-          type="text"
-          name="StreamKey"
-          placeholder="Enter Stream Key"
-          class="form-control"
-          ngModel
-        />
-        <small class="form-text text-muted"
-          >You can find it in Nuclear Throne options</small
-        >
-      </div>
-      <div class="col-md-6">
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
+    <div class="col-md-6">
+      <button type="submit" class="btn btn-primary">Submit</button>
     </div>
-  </form>
-  <div class="col-md-6">
-    <button class="btn btn-primary" (click)="addRunToUser()">Add New Run</button>
   </div>
-  
+</form>
+<form #userStreamKey="ngForm" (ngSubmit)="updateStreamKey(userStreamKey.value)">
+  <div class="form-row">
+    <div class="col-md-3 form-group">
+      <input
+        type="text"
+        name="StreamKey"
+        placeholder="Enter Stream Key"
+        class="form-control"
+        ngModel
+      />
+      <small class="form-text text-muted"
+        >You can find it in Nuclear Throne options</small
+      >
+    </div>
+    <div class="col-md-6">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+</form>
+<div class="col-md-6 new-run">
+  <button class="btn btn-primary" (click)="addRunToUser()">Add New Run</button>
+</div>

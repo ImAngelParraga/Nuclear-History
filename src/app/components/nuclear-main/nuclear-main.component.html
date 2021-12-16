@@ -1,39 +1,65 @@
-<form #userId="ngForm" (ngSubmit)="getUserRunsHistory(userId.value)">
-  <div class="form-row">
-    <div class="col-md-3 form-group">
-      <input
-        type="text"
-        name="SteamId"
-        placeholder="Enter Steam ID"
-        class="form-control"
-        ngModel
-      />
-      <small class="form-text text-muted">Example: 76561198087280179</small>
+<div class="forms-div">
+  <form #userId="ngForm" (ngSubmit)="getUserRunsHistory(userId.value)">
+    <div class="form-row align-items-center">
+      <div class="col-auto">
+        <input
+          type="text"
+          name="SteamId"
+          placeholder="Enter Steam ID"
+          class="form-control"
+          ngModel
+        />
+      </div>
+      <div class="col-auto">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
     </div>
-    <div class="col-md-6">
-      <button type="submit" class="btn btn-primary">Submit</button>
+    <small class="form-text text-muted">Example: 76561198087280179</small>
+  </form>
+  <form
+    #userStreamKey="ngForm"
+    (ngSubmit)="updateStreamKey(userStreamKey.value)"
+  >
+    <div class="form-row align-items-center">
+      <div class="col-auto">
+        <input
+          type="text"
+          name="StreamKey"
+          placeholder="Enter Stream Key"
+          class="form-control"
+          ngModel
+        />
+      </div>
+      <div class="col-auto">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
     </div>
+    <small class="form-text text-muted"
+      >You can find it in Nuclear Throne options</small
+    >
+  </form>
+  <div class="new-run">
+    <button class="btn btn-primary" (click)="addRunToUser()">
+      Add New Run
+    </button>
   </div>
-</form>
-<form #userStreamKey="ngForm" (ngSubmit)="updateStreamKey(userStreamKey.value)">
-  <div class="form-row">
-    <div class="col-md-3 form-group">
-      <input
-        type="text"
-        name="StreamKey"
-        placeholder="Enter Stream Key"
-        class="form-control"
-        ngModel
-      />
-      <small class="form-text text-muted"
-        >You can find it in Nuclear Throne options</small
-      >
-    </div>
-    <div class="col-md-6">
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
-  </div>
-</form>
-<div class="col-md-6 new-run">
-  <button class="btn btn-primary" (click)="addRunToUser()">Add New Run</button>
+</div>
+
+<div class="cards-div">
+  <mat-card class="mat-elevation-z4">
+    <mat-card-header>
+      <img mat-card-avatar src="./../assets/images/Eyes.png">
+      <mat-card-title>Himalayan Peaks</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src="./../assets/images/himapeak.jpg">
+    <mat-card-content>
+      <p>
+        The Himalayas is a mountain range in Asia.
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
 </div>

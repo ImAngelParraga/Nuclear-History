@@ -1,12 +1,36 @@
 .text-muted {
-    text-indent: 10px;
+  text-indent: 10px;
 }
 
 form {
-    margin: 5px;
+  margin: 5px;
+  margin-bottom: 20px;
 }
 
 .new-run {
-    margin-top: 30px;
-    margin-left: 10%;
+  margin-top: 30px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+.forms-div {
+    border: 1px solid gray;
+    float: left;
+}
+
+.cards-div {
+    float: right;
+    padding: 16px;
+    border: 1px solid gray;
+}
+
+.cards-div > mat-card {
+    width: 300px;
 }

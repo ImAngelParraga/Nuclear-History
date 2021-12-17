@@ -15,22 +15,98 @@ form {
 }
 
 .clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
+  content: "";
+  clear: both;
+  display: table;
+}
 
 .forms-div {
-    border: 1px solid gray;
-    float: left;
+  border: 1px solid gray;
+  float: left;
 }
 
 .cards-div {
-    float: right;
-    padding: 16px;
-    border: 1px solid gray;
+  float: right;
+  border: 1px solid gray;
 }
 
-.cards-div > mat-card {
-    width: 300px;
+.example-card {
+  width: 400px;
+}
+
+.example-header-image {
+  background-size: cover;
+  width: 60px;
+  height: 60px;
+  border-radius: 0%;
+}
+
+mat-card-header {
+  margin-bottom: 10px;
+  border: 1px solid salmon;
+}
+
+mat-card-content {
+  margin-top: 10px;
+}
+
+.mutations-image {
+  width: 30px;
+  height: 30px;
+}
+
+.footer-subtitle {
+  text-align: center;
+}
+
+mat-card-footer {
+  margin-top: 10px;
+}
+
+.header-title {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  border: 1px solid slateblue;
+}
+
+mat-card-title {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.killedBy-image {
+  width: 60%;
+  height: 60%;
+}
+
+.area-image {
+  width: 80px;
+  height: 80px;
+}
+
+.weapon-image {
+  width: 40%;
+  height: 40%;
+}
+
+.card-column {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  border: 1px solid greenyellow;
+  text-align: center;
+}
+
+.ultraMutations-image {
+  width: 30px;
+  height: 30px;
+  margin-left: 5px;
+}
+
+.mutations-row {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  border: 1px solid greenyellow;
 }

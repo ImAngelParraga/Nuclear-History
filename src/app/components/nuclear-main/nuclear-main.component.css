@@ -27,14 +27,14 @@ form {
 
 .cards-div {
   float: right;
-  border: 1px solid gray;
 }
 
 .example-card {
   width: 400px;
 }
 
-.example-header-image {
+.avatar-img {
+  margin-left: 20px;
   background-size: cover;
   width: 60px;
   height: 60px;
@@ -43,7 +43,6 @@ form {
 
 mat-card-header {
   margin-bottom: 10px;
-  border: 1px solid salmon;
 }
 
 mat-card-content {
@@ -64,10 +63,12 @@ mat-card-footer {
 }
 
 .header-title {
-  margin-left: auto;
-  margin-right: auto;
   margin-top: 10px;
-  border: 1px solid slateblue;
+  margin-left: 57px;
+}
+
+.header-subtitle {
+  margin-left: 65px;
 }
 
 mat-card-title {
@@ -94,19 +95,39 @@ mat-card-title {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
-  border: 1px solid greenyellow;
   text-align: center;
 }
 
-.ultraMutations-image {
-  width: 30px;
-  height: 30px;
-  margin-left: 5px;
+.ultra-div {
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+}
+
+.ultra-img {
+  width: 50px;
+  height: 50px;
 }
 
 .mutations-row {
+  width: fit-content;
   margin-left: auto;
   margin-right: auto;
-  width: 100%;
-  border: 1px solid greenyellow;
+}
+
+.card-text {
+  margin-bottom: 2px;
+  margin-top: 10px;
+}
+
+#MutationsLabel {
+  margin-left: 40px;
+}
+
+.crown-img {
+  height: 50px;
+  width: 50px;
+  margin-top: 7px;
+  margin-left: 60px;
 }

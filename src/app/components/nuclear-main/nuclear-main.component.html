@@ -50,11 +50,16 @@
     <mat-card-header>
       <img
         mat-card-avatar
-        class="example-header-image"
+        class="avatar-img"
         src="./../assets/images/characters/Horror.png"
       />
       <mat-card-title class="header-title">Horror</mat-card-title>
-      <mat-card-subtitle>Type</mat-card-subtitle>
+      <mat-card-subtitle class="header-subtitle">Type</mat-card-subtitle>
+
+      <img
+        class="crown-img"
+        src="./../assets/images/mutations/Back_Muscle.webp"
+      />
     </mat-card-header>
     <mat-divider inset></mat-divider>
     <!--<img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
@@ -63,7 +68,7 @@
         <div class="col-sm">
           <div class="row">
             <div class="col-sm card-column">
-              <p>Desert 1-3 Loop: 0</p>
+              <p class="card-text">Desert 1-3 Loop: 0</p>
               <img
                 src="./../assets/images/areas/Desert.webp"
                 class="area-image"
@@ -71,7 +76,7 @@
             </div>
 
             <div class="col-sm card-column">
-              <p>Killed by</p>
+              <p class="card-text">Killed by</p>
               <img
                 class="killedBy-image"
                 src="./../assets/images/enemies/Big Bandit.gif"
@@ -81,7 +86,7 @@
 
           <div class="row">
             <div class="col-sm card-column">
-              <p>Weapon A</p>
+              <p class="card-text">Weapon A</p>
               <img
                 src="./../assets/images/weapons/Assault Rifle.png"
                 class="weapon-image"
@@ -89,7 +94,7 @@
             </div>
 
             <div class="col-sm card-column">
-              <p>Weapon B</p>
+              <p class="card-text">Weapon B</p>
               <img
                 src="./../assets/images/weapons/Auto Crossbow.png"
                 class="weapon-image"
@@ -97,7 +102,7 @@
             </div>
           </div>
 
-          <p>Mutations:</p>
+          <p class="card-text" id="MutationsLabel">Mutations:</p>
           <div class="row mutations-row">
             <img
               class="mutations-image"
@@ -135,8 +140,10 @@
               class="mutations-image"
               src="./../assets/images/mutations/Back_Muscle.webp"
             />
+          </div>
+          <div class="ultra-div">
             <img
-              class="ultraMutations-image"
+              class="ultra-img"
               src="./../assets/images/mutations/ultra/Horror_B.webp"
               title="HEYEHAHDA"
             />

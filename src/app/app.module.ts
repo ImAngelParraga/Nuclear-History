@@ -17,12 +17,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule} from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
-import { MatDividerModule } from '@angular/material/divider'
+import { MatDividerModule } from '@angular/material/divider';
+import { CardsGroupComponent } from './components/cards-group/cards-group.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    NuclearMainComponent
+    NuclearMainComponent,
+    CardsGroupComponent
   ],
   imports: [
     BrowserModule,

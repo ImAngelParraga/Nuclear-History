@@ -18,7 +18,8 @@ import { MatCardModule} from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
-import { CardsGroupComponent } from './components/cards-group/cards-group.component'
+import { CardsGroupComponent } from './components/cards-group/cards-group.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { CardsGroupComponent } from './components/cards-group/cards-group.compon
     MatCardModule,
     MatToolbarModule,
     MatButtonModule,
-    MatDividerModule
+    MatDividerModule,
+    FlexLayoutModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

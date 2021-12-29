@@ -1,3 +1,7 @@
+#layout {
+  max-width: 800px;
+}
+
 .example-card {
   width: 380px;
 }

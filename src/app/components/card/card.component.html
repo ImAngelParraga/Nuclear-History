@@ -1,0 +1,88 @@
+<mat-card class="example-card mat-elevation-z4">
+  <mat-card-header>
+    <img
+      mat-card-avatar
+      class="avatar-img"
+      src="./../assets/images/characters/{{ card.char }}.png"
+    />
+    <mat-card-title class="header-title">{{ card.char }}</mat-card-title>
+    <mat-card-subtitle class="header-subtitle">{{
+      card.type
+    }}</mat-card-subtitle>
+
+    <img
+      class="crown-img"
+      src="./../assets/images/crowns/{{ card.crown }}.png"
+    />
+  </mat-card-header>
+  <mat-divider inset></mat-divider>
+  <mat-card-content>
+    <div class="container">
+      <div class="col-sm">
+        <div class="row">
+          <div class="col-sm card-column">
+            <p class="card-text">
+              {{ card.worldName }} {{ card.world }}-{{ card.level }} Loop:
+              {{ card.loops }}
+            </p>
+            <img
+              src="./../assets/images/areas/{{ areaFilename }}.webp"
+              class="area-image"
+            />
+          </div>
+
+          <div class="col-sm card-column">
+            <p class="card-text">Killed by</p>
+            <img
+              class="killedBy-image"
+              src="./../assets/images/enemies/{{ card.lasthit }}.gif"
+            />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm card-column">
+            <p class="card-text">Weapon A</p>
+            <img
+              [style.visibility]="card.wepA == 'Nothing' ? 'hidden' : 'visible'"
+              src="./../assets/images/weapons/{{ card.wepA }}.png"
+              class="weapon-image"
+              title="{{ card.wepA }}"
+            />
+          </div>
+
+          <div class="col-sm card-column">
+            <p class="card-text">Weapon B</p>
+            <img
+              [style.visibility]="card.wepB == 'Nothing' ? 'hidden' : 'visible'"
+              src="./../assets/images/weapons/{{ card.wepB }}.png"
+              class="weapon-image"
+              title="{{ card.wepB }}"
+            />
+          </div>
+        </div>
+
+        <p class="card-text" id="MutationsLabel">Mutations:</p>
+        <div class="row mutations-row" *ngFor="let mut of card.mutations">
+          <img
+            class="mutations-image"
+            src="./../assets/images/mutations/mut.webp"
+            title="mut"
+          />
+        </div>
+        <div class="ultra-div">
+          <img
+            [style.visibility]="card.ultra == '' ? 'hidden' : 'visible'"
+            class="ultra-img"
+            src="./../assets/images/mutations/ultra/{{card.char}}_{{card.ultra}}.webp"
+            title="HEYEHAHDA"
+          />
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-divider inset></mat-divider>
+  <mat-card-footer>
+    <mat-card-subtitle class="footer-subtitle">Yesterday</mat-card-subtitle>
+  </mat-card-footer>
+</mat-card>

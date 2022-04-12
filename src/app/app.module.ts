@@ -20,12 +20,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { CardsGroupComponent } from './components/cards-group/cards-group.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NuclearMainComponent,
-    CardsGroupComponent
+    CardsGroupComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

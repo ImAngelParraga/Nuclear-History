@@ -20,7 +20,7 @@ export interface NTRun {
     health: number;
     steamid: string;
     type: string;
-    timestamp: number;
+    timestamp: number; //Timestamp is in seconds, not in milliseconds
 }
 
 export interface CardRun {
@@ -60,8 +60,10 @@ export function ntRunToCardRun(ntRun: NTRun): CardRun {
         mutations: [],
         kills: ntRun.kills,
         type: ntRun.type,
-        time: new Date(ntRun.timestamp).toString()
+        time: ""
     }
+    var time = new Date(ntRun.timestamp * 1000);
+    cardRun.time = time.toLocaleDateString() + "  " + time.toLocaleTimeString();
 
     for (let index = 0; index < ntRun.mutations.length; index++) {
         const char = ntRun.mutations.charAt(index);

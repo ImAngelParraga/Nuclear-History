@@ -19,6 +19,6 @@ export class NuclearFirestoreService {
   }
 
   getUserRuns(userId: string) {
-    return this.firestore.collection<NTRun>(userId);
+    return this.firestore.collection('Users').doc(userId).collection<NTRun>('Runs');
   }
 }

@@ -11,8 +11,8 @@ export class NuclearService {
 
   constructor(private http: HttpClient) { }
 
-  callNuclearApi(steamId: string, streamKey: string) {
-    let apiUrl = this.baseUrl + `${steamId}&key=${streamKey}`
-    return this.http.get<NTJson>(apiUrl).toPromise()
+  async callNuclearApi(steamId: string, streamKey: string) {
+    let apiUrl = this.baseUrl + `${steamId}&key=${streamKey}`;
+    return await this.http.get<NTJson>(apiUrl).toPromise();
   }
 }

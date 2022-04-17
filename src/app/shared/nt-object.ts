@@ -75,6 +75,14 @@ export function ntRunToCardRun(ntRun: NTRun): CardRun {
     return cardRun
 }
 
+export function sameRun(runA: NTRun, runB: NTRun) {
+    if (runA == undefined || runA == null || runB == undefined || runB == null) {
+        return false
+    }
+    var res = (runA.steamid === runB.steamid && runA.timestamp === runB.timestamp);
+    return res
+}
+
 export enum Characters {
     "Fish" = 1, //Number 1
     "Crystal" = 2,
@@ -116,6 +124,7 @@ export enum Enemies {
     "Spider",
     "(Not in game)",
     "Laser Crystal",
+    "Hyper Crystal",
     "Snow Bandit",
     "Snowbot",
     "Wolf",

@@ -1,9 +1,9 @@
 import { NgAnalyzedFileWithInjectables } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Type } from '@angular/core';
 import { interval, Observable, Subscription } from 'rxjs';
 import { NuclearFirestoreService } from 'src/app/services/nuclear-firestore.service';
 import { NuclearService } from 'src/app/services/nuclear.service';
-import { NTJson, NTRun } from 'src/app/shared/nt-object';
+import { NTJson, NTRun, sameRun } from 'src/app/shared/nt-object';
 
 @Component({
   selector: 'app-nuclear-main',
@@ -15,6 +15,7 @@ export class NuclearMainComponent implements OnInit {
   userId: string = '';
   userRuns: NTJson = {} as NTJson;
   streamKey: string = '';
+  addRunInterval: any;
 
   constructor(
     private firestoreService: NuclearFirestoreService,
@@ -36,19 +37,26 @@ export class NuclearMainComponent implements OnInit {
     }
   }
 
+  addRunLoop() {
+    var c = this;
+    this.addRunInterval = setInterval(function(){c.addRunToUser();}, 15000);
+  }
+
   addRunToUser() {
     this.nuclearApi
       .callNuclearApi(this.userId, this.streamKey)
       .then((response) => {
-        this.userRuns = response;
-        console.log(`User runs 1: ${this.userRuns}`);
-        this.userRuns.previous.steamid = this.userId;
-        console.log(`User runs 2: ${this.userRuns}`);
-        this.firestoreService
-          .addRunToUser(this.userId, this.userRuns.previous)
-          .then((res) => {
-            console.log(res);
-          });
+        if (response.previous != null && sameRun(this.userRuns.previous, response.previous) == false){
+          this.userRuns = response;
+          console.log(`User runs 1: ${this.userRuns}`);
+          this.userRuns.previous.steamid = this.userId;
+          console.log(`User runs 2: ${this.userRuns}`);
+          this.firestoreService
+            .addRunToUser(this.userId, this.userRuns.previous)
+            .then((res) => {
+              console.log(res);
+            });
+        };
       });
   }
 

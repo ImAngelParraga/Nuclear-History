@@ -51,6 +51,24 @@
 	<div class="divider div-transparent div-arrow-down"></div>
 </div>
 
+<form #steamID="ngForm" (ngSubmit)="getUserRunsHistory(steamID.value)" class="center-form">
+  <div class="form-row align-items-center">
+    <div class="col-auto">
+      <input
+        type="text"
+        name="SteamId"
+        placeholder="Enter Steam ID"
+        class="form-control"
+        ngModel
+      />
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+  </div>
+  <small class="form-text text-muted">Example: 76561198087280179</small>
+</form>
+
 <div class="cards-div">
   <app-cards-group [runs]="userRunsHistory"></app-cards-group>
 </div>

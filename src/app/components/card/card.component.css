@@ -1,5 +1,10 @@
 .example-card {
   width: 380px;
+  height: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 .avatar-img {

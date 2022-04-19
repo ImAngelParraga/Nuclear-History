@@ -8,7 +8,7 @@ form {
 }
 
 .new-run {
-  margin-top: 30px;
+  margin-top: 20px;
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
@@ -23,10 +23,37 @@ form {
 .forms-div {
   border: 1px solid gray;
   width: fit-content;
+  margin-left: 27%;
+  margin-right: 30px;
+}
+
+.myRow {
+  margin-bottom: 15px;
+}
+
+.auto-checkbox {
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 20px;
+  width: fit-content;
+  font-size: 16px;
 }
+
+.acc-info {
+  width: fit-content;
+  height: fit-content;
+  padding-top: 12px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 12px;
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: left;
+  border: 1px solid gray;
+  font-size: 16px;
+  margin-left: 30px;
+}
+
+
 
 /* Card Group CSS */
 
@@ -48,6 +75,7 @@ form {
   width: 100%;
   max-width: none;
   float: none;
+  margin-top: 40px;
   margin-left: auto;
   margin-right: auto;
   display: block;

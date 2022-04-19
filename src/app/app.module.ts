@@ -21,6 +21,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { CardsGroupComponent } from './components/cards-group/cards-group.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CardComponent } from './components/card/card.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { CardComponent } from './components/card/card.component';
     MatToolbarModule,
     MatButtonModule,
     MatDividerModule,
-    FlexLayoutModule 
+    FlexLayoutModule ,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

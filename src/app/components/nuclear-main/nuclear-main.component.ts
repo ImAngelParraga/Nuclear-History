@@ -1,5 +1,6 @@
 import { NgAnalyzedFileWithInjectables } from '@angular/compiler';
 import { Component, OnInit, Type } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { interval, Observable, Subscription } from 'rxjs';
 import { NuclearFirestoreService } from 'src/app/services/nuclear-firestore.service';
 import { NuclearService } from 'src/app/services/nuclear.service';
@@ -13,9 +14,16 @@ import { NTJson, NTRun, sameRun } from 'src/app/shared/nt-object';
 export class NuclearMainComponent implements OnInit {
   userRunsHistory: NTRun[] = [];
   userId: string = '';
+  steamId: string = '';
   userRuns: NTJson = {} as NTJson;
   streamKey: string = '';
   addRunInterval: any;
+  autocheck: boolean = false
+
+  myForm = new FormGroup({
+    formSteamID: new FormControl(''),
+    formStreamKey: new FormControl(''),
+  });
 
   constructor(
     private firestoreService: NuclearFirestoreService,
@@ -31,9 +39,39 @@ export class NuclearMainComponent implements OnInit {
     }
   }
 
-  updateStreamKey(data: { StreamKey: string }) {
-    if (this.streamKey != data.StreamKey) {
-      this.streamKey = data.StreamKey;
+  updateSteamId(SteamId: string) {
+    if (SteamId != this.steamId) {
+      this.steamId = SteamId;
+    }
+  }
+
+  updateStreamKey(StreamKey: string) {
+    if (this.streamKey != StreamKey) {
+      this.streamKey = StreamKey;
+    }
+  }
+
+  submitForm() {
+    clearInterval(this.addRunInterval)
+
+    this.updateSteamId(this.myForm.value["formSteamID"])
+    this.updateStreamKey(this.myForm.value["formStreamKey"])
+    this.autocheck = this.myForm.value["formAutoCheck"]
+
+    if (this.myForm.value["formAutoCheck"] == true ) {
+      this.addRunLoop()
+    } else {
+      this.addRunToUser()
+    }
+  }
+
+  manageAutoCheck() {
+    if (this.autocheck) {
+      clearInterval(this.addRunInterval)
+      this.autocheck = false
+    } else {
+      this.addRunLoop()
+      this.autocheck = true
     }
   }
 
@@ -44,15 +82,12 @@ export class NuclearMainComponent implements OnInit {
 
   addRunToUser() {
     this.nuclearApi
-      .callNuclearApi(this.userId, this.streamKey)
+      .callNuclearApi(this.steamId, this.streamKey)
       .then((response) => {
         if (response.previous != null && sameRun(this.userRuns.previous, response.previous) == false){
           this.userRuns = response;
-          console.log(`User runs 1: ${this.userRuns}`);
-          this.userRuns.previous.steamid = this.userId;
-          console.log(`User runs 2: ${this.userRuns}`);
           this.firestoreService
-            .addRunToUser(this.userId, this.userRuns.previous)
+            .addRunToUser(this.steamId, this.userRuns.previous)
             .then((res) => {
               console.log(res);
             });

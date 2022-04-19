@@ -1,57 +1,85 @@
-<div class="forms-div">
-  <form #userId="ngForm" (ngSubmit)="getUserRunsHistory(userId.value)">
-    <div class="form-row align-items-center">
-      <div class="col-auto">
-        <input
-          type="text"
-          name="SteamId"
-          placeholder="Enter Steam ID"
-          class="form-control"
-          ngModel
-        />
-      </div>
-      <div class="col-auto">
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
+<h2 class="runs-title">Check Info</h2>
+
+<div class="wrapper">
+  <div class="divider div-transparent div-arrow-down"></div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="forms-div">
+      <form [formGroup]="myForm" (ngSubmit)="submitForm()">
+        <div class="myRow">
+          <div class="form-row align-items-center">
+            <div class="col-auto">
+              <input
+                id="steam-id"
+                formControlName="formSteamID"
+                type="text"
+                placeholder="Enter Steam ID"
+                class="form-control"
+              />
+            </div>
+          </div>
+          <small class="form-text text-muted">Example: 76561198087280179</small>
+        </div>
+    
+        <div class="myRow">
+          <div class="form-row">
+            <div class="col-auto">
+              <input
+                id="stream-key"
+                formControlName="formStreamKey"
+                type="text"
+                placeholder="Enter Stream Key"
+                class="form-control"
+              />
+            </div>
+          </div>
+          <small class="form-text text-muted">
+            You can find it in Nuclear Throne options
+          </small>
+        </div>
+    
+        <div class="form-check auto-checkbox">
+          <input
+            id="auto-check"
+            formControlName="formAutoCheck"
+            class="form-check-input"
+            type="checkbox"
+            value=false
+          />
+          <label class="form-check-label" for="flexCheckDefault">
+            Auto checking
+          </label>
+        </div>
+
+        <div class="new-run">
+          <button class="btn btn-primary" type="submit">Check</button>
+        </div>
+      </form>
     </div>
-    <small class="form-text text-muted">Example: 76561198087280179</small>
-  </form>
-  <form
-    #userStreamKey="ngForm"
-    (ngSubmit)="updateStreamKey(userStreamKey.value)"
-  >
-    <div class="form-row align-items-center">
-      <div class="col-auto">
-        <input
-          type="text"
-          name="StreamKey"
-          placeholder="Enter Stream Key"
-          class="form-control"
-          ngModel
-        />
-      </div>
-      <div class="col-auto">
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
+    
+    <div class="acc-info">
+      <p>Steam ID: {{steamId}}</p>
+      <p>Stream Key: {{streamKey}}</p>
+      <p>Auto checking: <span style="color:#007afc">{{autocheck == true ? "On" : "Off"}}</span></p>
+      <button type="button" class="btn btn-primary" (click)="manageAutoCheck()">{{autocheck == true ? "Stop AutoCheck" : "Start Autocheck"}}</button>
     </div>
-    <small class="form-text text-muted"
-      >You can find it in Nuclear Throne options</small
-    >
-  </form>
-  <div class="new-run">
-    <button class="btn btn-primary" (click)="addRunToUser()">
-      Add New Run
-    </button>
   </div>
+  
 </div>
 
 <h2 class="runs-title">History</h2>
 
 <div class="wrapper">
-	<div class="divider div-transparent div-arrow-down"></div>
+  <div class="divider div-transparent div-arrow-down"></div>
 </div>
 
-<form #steamID="ngForm" (ngSubmit)="getUserRunsHistory(steamID.value)" class="center-form">
+<form
+  #steamID="ngForm"
+  (ngSubmit)="getUserRunsHistory(steamID.value)"
+  class="center-form"
+>
   <div class="form-row align-items-center">
     <div class="col-auto">
       <input
